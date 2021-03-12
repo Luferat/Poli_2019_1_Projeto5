@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+// 1) Importa dependências
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.page.html',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesPage implements OnInit {
 
-  constructor() { }
+  // 3) Cria atributos
+  private itemsCollection: AngularFirestoreCollection<any>;
+  items: Observable<any[]>;
 
-  ngOnInit() {
+  constructor(
+
+    // 2) Injeta dependências
+    private firestore: AngularFirestore
+  ) {
+
+    // 4) Obtém dados do database
+    this.itemsCollection = firestore.collection<any>(
+      'articles',
+      ref => ref.where('status', '==', 'ativo').orderBy('date', 'desc')
+    );
+    this.items = this.itemsCollection.valueChanges({ idField: 'id' });
   }
 
+  ngOnInit() { }
 }

@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
+  {
+    path: 'view/:id',
+    loadChildren: () => import('./pages/view/view.module').then( m => m.ViewPageModule)
+  },
 
   // Página de erro 404
   // DEVE SER SEMPRE A ÚLTIMA ROTA
