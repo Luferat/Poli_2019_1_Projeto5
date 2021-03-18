@@ -11,7 +11,7 @@
 
   <div *ngFor="let item of newsList" class="newsItem">
 
-    <ion-card class="ion-no-margin ion-padding-vertical" (click)="newOpen(item.url)">
+    <ion-card class="ion-no-margin ion-margin-vertical" (click)="newOpen(item.url)">
       <img src="{{ item.urlToImage }}" alt="{{ item.title }}">
       <ion-card-header>
         <ion-card-subtitle>{{ item.source.name }}</ion-card-subtitle>

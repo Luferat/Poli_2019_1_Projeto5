@@ -154,4 +154,10 @@ export class ContactsPage implements OnInit {
 
     await alert.present();
   }
+
+  // Processa botões das redes sociais
+  openSocial(name) {
+    window.open(`https://${name}.com/`);
+    return false;
+  }
 }
