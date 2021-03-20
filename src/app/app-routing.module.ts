@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'view/:id',
     loadChildren: () => import('./pages/view/view.module').then( m => m.ViewPageModule)
   },
+  {
+    path: 'news2',
+    loadChildren: () => import('./pages/news2/news2.module').then( m => m.News2PageModule)
+  },
 
   // Página de erro 404
   // DEVE SER SEMPRE A ÚLTIMA ROTA
@@ -40,6 +44,7 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   }
+
 ];
 
 @NgModule({
